@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodAddict Login</title>
+    <!--<link rel="stylesheet" href="styles/logsign.css">-->
+    <link rel="stylesheet" href="styles/loginsignup.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
+
+</head>
+<body>
+    <div class="container">
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <form action="process-signup.php" method="POST" novalidate id="sgnup">
+            <h3>Sign Up Here</h3>
+    
+            <label for="username">Email</label>
+            <input type="email" placeholder="Email" id="email" name="email">
+    
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password">
+
+            <label for="password">Repeat Password</label>
+            <input type="password" placeholder="Repeat password" id="password-re" name="password-re">
+    
+            <button>Sign Up</button>
+
+            <!--
+            <div class="social">
+              <div class="go"><i class="fab fa-google"></i>  Google</div>
+              <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+            </div>
+            -->
+            
+            <div class="redirect-link">
+                Already have an account? <a href="login.php">Log In</a>
+              </div>
+        </form>    
+        <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+        <script src="js/validation.js" defer></script>
+        <script src="https://kit.fontawesome.com/32c48c7151.js" crossorigin="anonymous" defer></script>
+    </div>
+</body>
+</html>
