@@ -1,7 +1,7 @@
 <?php
 
-$host = "localhost";
-$dbname = "tourismtest";
+$host = "localhost";   #Check for ur conditions and update that piece of code
+$dbname = "foodtest";
 $username ="root";
 $password = ""; #if not localhost better have a pwd
 
@@ -10,8 +10,8 @@ $mysqli = new mysqli(hostname : $host, username:  $username, password :  $passwo
 if ($mysqli->connect_errno){
     die("Connection error: " . $mysqli->connect_error);
 }
-else { 
-    die("Success");
+else{
+    print("success");
 }
 
 return $mysqli;
