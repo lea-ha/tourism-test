@@ -49,7 +49,8 @@ if (!$stmt->prepare($sql)){
     die("SQL error" . $mysqli->error); #can use errno to know the number and do more specific error handlings
 }
 
-$stmt->bind_param("ssiss", $_POST["first_name"], $_POST["last_name"],$_POST["phone_number"], $_POST["email"], $password_hash); #ssiss refers to string string integer string string, the order in which these were written in the sql sttmt
+#ssiss refers to string string integer string string, the order in which these were written in the sql sttmt
+$stmt->bind_param("ssiss", $_POST["first_name"], $_POST["last_name"],$_POST["phone_number"], $_POST["email"], $password_hash); 
 
 if($stmt->execute()){
     #echo "signup success";
