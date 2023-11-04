@@ -37,7 +37,7 @@ if (isset($_SESSION["user_id"])){
 
         <div class="container" id="container-trip">
             <h1>Explore our trips</h1>
-            
+
             <!-- Related content for trips should be added here, similar to the one for places -->
         </div>
 
@@ -46,25 +46,28 @@ if (isset($_SESSION["user_id"])){
 
         <div class="container" id="container-place">
             <h1>Explore New Places</h1>
-            <h2>Heritage & Culture</h2>
-            <div class="culture" style="display : flex; gap: 10px;">
+            
+            <div class="main-places" style="display : flex; gap: 10px;">
                 <!-- Testing with sample data without the db, this sample data will be later deleted and content 
                 will be rendered using php js mysql... -->
                 <div class="place">
-                    <h3>Archeological Sites</h3>
-                    <img src="pics/baalback-temple.png" style="width: 200px; height: 100px;">
+                    <h3>Heritage & Culture</h3>
+                    <img src="pics/baalback-temple.png" style="width: 250px; height: 200px;">
                 </div>
                 <div class="place">
-                    <h3>Museums</h3>
-                    <img src="pics/beirut-nat-museum.png" style="width: 200px; height: 100px;">
+                    <h3>Activity</h3>
+                    <img src="pics/paragliding.png" style="width: 250px; height: 200px;">
+                </div>
+                <div class="place">
+                    <h3>Eat & Drink</h3>
+                    <img src="pics/hvillage.jpeg" style="width: 250px; height: 200px;">
                 </div>
             </div>
-            <div class="restaurant">
+            <!-- If we want 2 separate and add more details, remove the comments down below, and copy paste 
+            another for activity-->
+            <!-- <div class="restaurant"> -->
                 <!--Same layout applied to culture should be applied here, for reference : bamleb website-->
-            </div>
-            <div class="activity">
-                 <!--Same layout applied to culture should be applied here, for reference : bamleb website-->
-            </div>
+            <!-- </div> --> 
         </div>
 
 
