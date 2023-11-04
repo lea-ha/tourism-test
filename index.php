@@ -28,11 +28,45 @@ if (isset($_SESSION["user_id"])){
 <body>
     <h1>Home</h1>
     <?php if(isset($user)) : ?>
+
+        <!-- Navigation bar, feel free to edit it completely, classes are from fontawesome, used for displaying icons -->
+
+        <a><button><i class="fa-solid fa-map"></i>       Book a Trip</button></a>
+        <a><button><i class="fa-solid fa-user"></i>         My Profile</button></a>
         <p> Hello <?= htmlspecialchars($user["first_name"])?></p>
-      
-       
-       <a><button><i class="fa-solid fa-magnifying-glass"></i>         Search for Places</button></a>
-       <a><button> <i class="fa-solid fa-heart"></i>           My Favorites</button></a>
+
+        <div class="container" id="container-trip">
+            <h1>Explore our trips</h1>
+            
+            <!-- Related content for trips should be added here, similar to the one for places -->
+        </div>
+
+
+
+
+        <div class="container" id="container-place">
+            <h1>Explore New Places</h1>
+            <h2>Heritage & Culture</h2>
+            <div class="culture" style="display : flex; gap: 10px;">
+                <!-- Testing with sample data without the db, this sample data will be later deleted and content 
+                will be rendered using php js mysql... -->
+                <div class="place">
+                    <h3>Archeological Sites</h3>
+                    <img src="pics/baalback-temple.png" style="width: 200px; height: 100px;">
+                </div>
+                <div class="place">
+                    <h3>Museums</h3>
+                    <img src="pics/beirut-nat-museum.png" style="width: 200px; height: 100px;">
+                </div>
+            </div>
+            <div class="restaurant">
+                <!--Same layout applied to culture should be applied here, for reference : bamleb website-->
+            </div>
+            <div class="activity">
+                 <!--Same layout applied to culture should be applied here, for reference : bamleb website-->
+            </div>
+        </div>
+
 
        <p><a href="logout.php">Log out</a></p>
     <?php else: ?>
