@@ -36,9 +36,15 @@ if (isset($_SESSION["user_id"])){
         <p> Hello <?= htmlspecialchars($user["first_name"])?></p>
 
         <div class="container" id="container-trip">
-            <h1>Explore our trips</h1>
-
             <!-- Related content for trips should be added here, similar to the one for places -->
+            <h1>Explore our trips</h1>
+            <p>Upcoming trips</p>
+            <div class="trip">
+                trip1
+            </div>
+            <div class="trip">
+                trip2
+            </div>
         </div>
 
 
