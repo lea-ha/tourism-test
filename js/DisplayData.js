@@ -34,7 +34,10 @@ class DisplayData {
             place.appendChild(placeNameDOM);
             this.parentContainer.appendChild(place);
         });
-     
+    }
+
+    displayTrip(jsonArray){
+      //Need to implement js codes for DOM content of Trips
     }
   }
   
