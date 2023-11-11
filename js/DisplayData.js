@@ -2,6 +2,7 @@ class DisplayData {
 
     count = 0;
     placesNames = [];
+    districts = new Set();
     parentContainer = document.querySelector('.place-container');
 
     constructor() {
@@ -15,6 +16,7 @@ class DisplayData {
             const place = document.createElement('div');
             place.className = "place";
             const placeName = element.name;
+            this.districts.add(element.district);
             //const placePic = element.image; <-- need to take care of this to be displayed on DOM once we have pics in db
             this.placesNames[this.count] = placeName;
             this.count++;
