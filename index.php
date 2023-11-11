@@ -56,18 +56,24 @@ if (isset($_SESSION["user_id"])){
             <div class="main-places" style="display : flex; gap: 10px;">
                 <!-- Testing with sample data without the db, this sample data will be later deleted and content 
                 will be rendered using php js mysql... -->
-                <div class="place">
+                <a href="culture.php">
+                <div class="place" id = "culture">
                     <h3>Heritage & Culture</h3>
                     <img src="pics/baalback-temple.png" style="width: 250px; height: 200px;">
                 </div>
-                <div class="place">
+                </a>
+                <a href="activity.php">
+                <div class="place" id = "activity">
                     <h3>Activity</h3>
                     <img src="pics/paragliding.png" style="width: 250px; height: 200px;">
                 </div>
-                <div class="place">
+                </a>
+                <a href="restaurant.php"> <!--area of code under testing -->
+                <div class="place" id = "restaurant">
                     <h3>Eat & Drink</h3>
                     <img src="pics/hvillage.jpeg" style="width: 250px; height: 200px;">
                 </div>
+                </a>
             </div>
             <!-- If we want 2 separate and add more details, remove the comments down below, and copy paste 
             another for activity-->
