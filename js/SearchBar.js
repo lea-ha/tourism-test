@@ -1,0 +1,6 @@
+class SearchBar{
+
+    constructor(searchIdDom) {
+      
+    }
+}
