@@ -24,6 +24,9 @@ if (isset($_SESSION["user_id"])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <title>Home</title>
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <script src="js/DisplayData.js" defer></script>
+    <script src ="js/tripsfetch.js" defer></script>
+
 </head>
 <body>
     <h1>Home</h1>
@@ -35,16 +38,12 @@ if (isset($_SESSION["user_id"])){
         <a><button><i class="fa-solid fa-user"></i>         My Profile</button></a>
         <p> Hello <?= htmlspecialchars($user["first_name"])?></p>
 
+        <h1>Explore our trips</h1>
+        <p>Upcoming trips</p>
+
         <div class="container" id="container-trip">
             <!-- Related content for trips should be added here, similar to the one for places -->
-            <h1>Explore our trips</h1>
-            <p>Upcoming trips</p>
-            <div class="trip">
-                trip1
-            </div>
-            <div class="trip">
-                trip2
-            </div>
+            
         </div>
 
 

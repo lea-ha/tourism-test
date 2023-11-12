@@ -23,7 +23,8 @@ class DisplayData {
             const districtDOM = document.createElement('p');
             districtDOM.textContent = "district : " + district;
 
-            //const placePic = element.image; <-- need to take care of this to be displayed on DOM once we have pics in db
+            //const placePic = element.picture; <-- need to take care of this to be displayed on DOM once we have pics in db
+            // Having an error when i am inserting image in db.
             this.placesNames[this.count] = placeName;
             this.count++;
             const placeNameDOM = document.createElement('p');
@@ -38,6 +39,34 @@ class DisplayData {
 
     displayTrip(jsonArray){
       //Need to implement js codes for DOM content of Trips
+      const parentContainer2 = document.querySelector('#container-trip');
+      jsonArray.forEach(element =>{
+        const tripdiv = document.createElement('div');
+        tripdiv.className="trip";
+        tripdiv.innerText = "Trip: " +  element.trip_name;
+
+        const guideName = document.createElement('p');
+        guideName.innerText = "Guide Name : " + element.first_name + " " + element.last_name;
+
+        const resto = document.createElement('p');
+        resto.innerText =  "Restaurant : " + element.restaurant_name;
+
+        const tripdate = document.createElement('p');
+        tripdate.innerText = element.date;
+
+        const activity = document.createElement('p');
+        activity.innerText = "Activity: " + element.activity_name;
+
+        const culture = document.createElement('p');
+        culture.innerText = "Culture: " + element.culture_name;
+
+        tripdiv.appendChild(activity);
+        tripdiv.appendChild(culture);
+        tripdiv.appendChild(resto);
+        tripdiv.appendChild(guideName);
+        tripdiv.appendChild(tripdate);
+        parentContainer2.appendChild(tripdiv);
+      })
     }
   }
   
