@@ -35,6 +35,7 @@ class DisplayData {
             place.appendChild(placeNameDOM);
             this.parentContainer.appendChild(place);
         });
+
     }
 
     displayTrip(jsonArray){
@@ -66,7 +67,25 @@ class DisplayData {
         tripdiv.appendChild(guideName);
         tripdiv.appendChild(tripdate);
         parentContainer2.appendChild(tripdiv);
+
+        const buttonView = document.createElement('button');
+        const buttonBook = document.createElement('button');
+
+        const iconBooking = document.createElement('i');
+        const iconDetails = document.createElement('i');
+        iconBooking.className = "fa-solid fa-map";
+        iconDetails.className = "fa-solid fa-circle-info";
+
+        buttonView.innerText = "View Details  ";
+        buttonBook.innerText = "Book a Seat  ";
+        buttonBook.appendChild(iconBooking);
+        buttonView.appendChild(iconDetails);
+        //maybe should make a method for both trip and bus booking
+
+        tripdiv.appendChild(buttonView);
+        tripdiv.appendChild(buttonBook);
       })
+
     }
   }
   

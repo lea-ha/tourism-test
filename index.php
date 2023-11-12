@@ -34,12 +34,11 @@ if (isset($_SESSION["user_id"])){
 
         <!-- Navigation bar, feel free to edit it completely, classes are from fontawesome, used for displaying icons -->
 
-        <a><button><i class="fa-solid fa-map"></i>       Book a Trip</button></a>
-        <a><button><i class="fa-solid fa-user"></i>         My Profile</button></a>
-        <p> Hello <?= htmlspecialchars($user["first_name"])?></p>
+        <p> Hello <?= htmlspecialchars($user["first_name"])?> !</p>
 
-        <h1>Explore our trips</h1>
-        <p>Upcoming trips</p>
+        <a><button><i class="fa-solid fa-user"></i>         My Profile</button></a>
+
+        <h1>Upcoming Trips</h1>
 
         <div class="container" id="container-trip">
             <!-- Related content for trips should be added here, similar to the one for places -->
