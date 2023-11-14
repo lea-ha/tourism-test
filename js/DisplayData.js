@@ -42,12 +42,13 @@ class DisplayData {
       //Need to implement js codes for DOM content of Trips
       const parentContainer2 = document.querySelector('#container-trip');
       jsonArray.forEach(element =>{
+        
         const tripdiv = document.createElement('div');
         tripdiv.className="trip";
         tripdiv.innerText = "Trip: " +  element.trip_name;
 
         const guideName = document.createElement('p');
-        guideName.innerText = "Guide Name : " + element.first_name + " " + element.last_name;
+        guideName.innerText = "Guide Name : " + element.guideName;
 
         const resto = document.createElement('p');
         resto.innerText =  "Restaurant : " + element.restaurant_name;
@@ -86,7 +87,7 @@ class DisplayData {
         tripdiv.appendChild(buttonBook);
       })
 
-    }
+    }  //This script is in my cache i guess.
   }
   
   
