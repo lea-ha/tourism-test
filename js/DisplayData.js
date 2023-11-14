@@ -51,16 +51,16 @@ class DisplayData {
         guideName.innerText = "Guide Name : " + element.guideName;
 
         const resto = document.createElement('p');
-        resto.innerText =  "Restaurant : " + element.restaurant_name;
+        resto.innerText =  "Restaurant : " + element.restaurants;
 
         const tripdate = document.createElement('p');
         tripdate.innerText = element.date;
 
         const activity = document.createElement('p');
-        activity.innerText = "Activity: " + element.activity_name;
+        activity.innerText = "Activity: " + element.activities;
 
         const culture = document.createElement('p');
-        culture.innerText = "Culture: " + element.culture_name;
+        culture.innerText = "Culture: " + element.cultures;
 
         tripdiv.appendChild(activity);
         tripdiv.appendChild(culture);
