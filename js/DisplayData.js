@@ -1,8 +1,8 @@
 class DisplayData {
 
     count = 0;
-    placesNames = [];
-    districts = new Set();
+    placesNames = []; //this is used for the search bar
+    districts = new Set(); //this can be used for filtering by districts
     parentContainer = document.querySelector('.place-container');
 
     constructor() {
@@ -39,7 +39,8 @@ class DisplayData {
     }
 
     displayTrip(jsonArray){
-      //Need to implement js codes for DOM content of Trips
+      //Need to implement js codes for DOM content of Trips. To view how the trips are saved in the array, 
+      //go to console on index.php page.
       const parentContainer2 = document.querySelector('#container-trip');
       jsonArray.forEach(element =>{
         
@@ -87,7 +88,18 @@ class DisplayData {
         tripdiv.appendChild(buttonBook);
       })
 
-    }  //This script is in my cache i guess.
+    }  
+
+    displayUserDetails($userID){
+
+    }
+
+    displayAdminDetails($guideID){
+      
+    }
   }
+
+  
+
   
   

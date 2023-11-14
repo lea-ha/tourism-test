@@ -36,7 +36,10 @@ if (isset($_SESSION["user_id"])){
 
         <p> Hello <?= htmlspecialchars($user["first_name"])?> !</p>
 
-        <a><button><i class="fa-solid fa-user"></i>         My Profile</button></a>
+        <form action="GetUserDetails.php" method = "POST">
+            <button><i class="fa-solid fa-user"></i>         My Profile</button>
+        </form>
+        
 
         <h1>Upcoming Trips</h1>
 
