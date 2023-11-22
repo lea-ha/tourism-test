@@ -67,7 +67,7 @@ function getTripDetails() {
 
     $result = $mysqli->query($myquery);
 
-    // The above would return 2 rows if a trip has 2 activities, so we need to group them:
+    
 
     $tripDetails = array();
 

@@ -34,6 +34,12 @@ class DisplayData {
             placeNameDOM.appendChild(districtDOM);
             place.appendChild(placeNameDOM);
             this.parentContainer.appendChild(place);
+
+            const buttonFav = document.createElement('button');
+            //buttonFav.innerText("View More"); ha ma aam temshe
+            placeNameDOM.appendChild(buttonFav);
+            
+
         });
 
     }
@@ -81,6 +87,9 @@ class DisplayData {
         buttonView.innerText = "View Details  ";
         buttonBook.innerText = "Book a Seat  ";
         buttonBook.appendChild(iconBooking);
+        buttonBook.addEventListener('click', function(){
+
+        });
         buttonView.appendChild(iconDetails);
         //maybe should make a method for both trip and bus booking
 

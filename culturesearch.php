@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +13,11 @@
     <link rel="stylesheet" href="css/hide.css">
     <script src="js/DisplayData.js" defer></script>
     <script src ="js/SearchBar.js" defer></script>
-    <script src ="js/activityfetch.js" defer></script>
+    <script src ="js/culturefetch.js" defer></script>
+
 </head>
 <body>
+<?php if(isset($_SESSION['user_id'])) : ?>
     <div class="container">
         <select name="district" id="district">
             <option value="All">All</option>
@@ -25,4 +32,5 @@
         </div>
     </div>
 </body>
+<?php endif ?>
 </html>
