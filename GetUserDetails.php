@@ -25,15 +25,17 @@ if ($result) {
     if($row['guideID'] == null){
         ?>
         <h1>Welcome to the Regular User Profile Page</h1>
-        <h2>The users registered for trip Chouf tour are : </h2> <!-- hayda lezim ysir dynamic-->
+        <h2>The trips you are registered to are</h2>
+            <?php #write code to see which trips user with id in session is registered to ?>
+        
         
         <?php 
     } else {
         ?>
         <div>
             <h1>Welcome to the Guide Profile Page</h1>
-            <h2>The trips you are registered to are</h2>
-            <?php #write code to see which trips user with id in session is registered to ?>
+            <h2>The users registered for trip Chouf tour are : </h2> <!-- hayda lezim ysir dynamic-->
+            
         </div>
         <?php 
     }
