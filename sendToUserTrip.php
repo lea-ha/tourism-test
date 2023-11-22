@@ -8,7 +8,7 @@ if (isset($_GET['tripID'])) {
     $userID = $_SESSION['user_id'];
 
     // Perform actions based on the tripID
-    echo "Actions performed for tripID: $tripID and for userID: $userID";
+    //echo "Actions performed for tripID: $tripID and for userID: $userID";
 
     
     $mysqli = require __DIR__ . "/dbconnect.php";
@@ -36,14 +36,17 @@ if (isset($_GET['tripID'])) {
         $insertStatement->bind_param("ii", $userID, $tripID);
 
         if ($insertStatement->execute()) {
-            echo "Booking successful!";
+            $alert = "Booking successful!";
+            echo $alert;
         } else {
-            echo "Error: Unable to book the trip.";
+            $alert = "Unable to book the trip. Try again later";
+            echo $alert;
         }
 
         $insertStatement->close();
     } else {
-        echo "Error: User has already booked this trip.";
+        $alert =  "You have already booked this trip.";
+        echo $alert;
     }
 
     $checkStatement->close();

@@ -103,7 +103,8 @@ class DisplayData {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     // Handle the response from the server
                     console.log(xhr.responseText);
-    
+                    alert(xhr.responseText);
+
                     // You can do something with the response here, if needed
                 }
             };
