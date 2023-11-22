@@ -88,7 +88,7 @@ class DisplayData {
         buttonBook.innerText = "Book a Seat  ";
         buttonBook.appendChild(iconBooking);
         buttonBook.addEventListener('click', function(){
-
+          //console.log("I clicked on the button");
         });
         buttonView.appendChild(iconDetails);
         //maybe should make a method for both trip and bus booking

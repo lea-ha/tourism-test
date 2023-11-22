@@ -31,6 +31,9 @@ session_start();
             
         </div>
     </div>
+    <?php else: ?>
+        <p>Please log in or sign up to continue</p>
+        <p><a href="login.php">Log in</a> or <a href="signup.html">Sign Up</a></p>
+    <?php endif ?>
 </body>
-<?php endif ?>
 </html>
