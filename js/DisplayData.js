@@ -69,6 +69,9 @@ class DisplayData {
         const culture = document.createElement('p');
         culture.innerText = "Culture: " + element.cultures;
 
+        const tripID = element.tripID;
+        //console.log(tripID);
+
         tripdiv.appendChild(activity);
         tripdiv.appendChild(culture);
         tripdiv.appendChild(resto);
@@ -87,8 +90,27 @@ class DisplayData {
         buttonView.innerText = "View Details  ";
         buttonBook.innerText = "Book a Seat  ";
         buttonBook.appendChild(iconBooking);
-        buttonBook.addEventListener('click', function(){
-          //console.log("I clicked on the button");
+        buttonBook.addEventListener('click', function () {
+          console.log("Button Book clicked for trip: " + element.trip_name);
+          buttonBook.addEventListener('click', function () {
+            // Make an AJAX request to the PHP file
+            var xhr = new XMLHttpRequest();
+    
+            xhr.open('GET', 'sendToUserTrip.php?tripID='+tripID, true);
+    
+            // Define the function to handle the response from the server
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Handle the response from the server
+                    console.log(xhr.responseText);
+    
+                    // You can do something with the response here, if needed
+                }
+            };
+    
+            // Send the request
+            xhr.send();
+        });
         });
         buttonView.appendChild(iconDetails);
         //maybe should make a method for both trip and bus booking

@@ -54,16 +54,7 @@ function getTripDetails() {
     // first_name(guide), last_name(guide), name(activity_name), name(culture_name)
 
     $mysqli = require __DIR__ . "/dbconnect.php";
-    $myquery = "SELECT trip.tripID, trip.date, trip.area, trip.trip_name, restaurant.name AS restaurant_name, guide.userID, users.first_name, users.last_name, activity.name AS activity_name, culture.name AS culture_name
-    FROM trip
-    INNER JOIN trip_restaurant ON trip.tripID = trip_restaurant.tripID
-    INNER JOIN restaurant ON trip_restaurant.restaurantID = restaurant.restaurantID
-    INNER JOIN guide ON trip.guideID = guide.guideID
-    INNER JOIN users ON guide.userID = users.userID
-    INNER JOIN trip_activity ON trip.tripID = trip_activity.tripID
-    INNER JOIN activity ON trip_activity.activityID = activity.activityID
-    INNER JOIN trip_culture ON trip.tripID = trip_culture.tripID
-    INNER JOIN culture ON trip_culture.cultureID = culture.cultureID;";
+    $myquery = "SELECT * FROM trip_details_view;";
 
     $result = $mysqli->query($myquery);
 
