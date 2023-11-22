@@ -21,10 +21,21 @@ $result = $mysqli->query($sql);
 if ($result) {
     $row = $result->fetch_assoc();
     print_r($row);
+    
     if($row['guideID'] == null){
-        print_r("This user is a regular user and should be redirected to the user profile page");
+        ?>
+        <h1>Welcome to the Regular User Profile Page</h1>
+        <h2>The users registered for trip Chouf tour are : </h2> <!-- hayda lezim ysir dynamic-->
+        
+        <?php 
     } else {
-        print_r("This user is a guide and should be redirected to the guide profile page");
+        ?>
+        <div>
+            <h1>Welcome to the Guide Profile Page</h1>
+            <h2>The trips you are registered to are</h2>
+            <?php #write code to see which trips user with id in session is registered to ?>
+        </div>
+        <?php 
     }
 } else {
     print_r("Error: " . mysqli_error($mysqli));
