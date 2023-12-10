@@ -16,6 +16,7 @@
 
 
 session_start();
+$ID_of_guide = null;
 
 if(isset($_SESSION['user_id'])){
     #print_r($_SESSION['user_id']); //working
@@ -32,12 +33,48 @@ $result = $mysqli->query($sql);
 if ($result) {
     $row = $result->fetch_assoc();
     #print_r($row);
-    
+    if($row['guideID'] != null){
+        $ID_of_guide = $row['guideID'];
+    }
     if($row['guideID'] == null){
         ?>
         <h1>Welcome to the Regular User Profile Page</h1>
         <h2>The trips you are registered to are</h2>
-            <?php #write code to see which trips user with id in session is registered to ?>
+        <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Trip</th>
+                        <th>Guide Name</th>
+                        <th>Guide Phone Number</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php 
+                    $mysqli = require __DIR__ . "/dbconnect.php"; 
+                    $sql = "SELECT DISTINCT trip.tripID, trip_name, guideID, first_name, last_name, phone_number FROM user_trip, trip, users WHERE users.userID = user_trip.userID AND users.userID = trip.guideID";
+                        $res = $mysqli->query($sql);
+
+                        if(!$res){
+                            die("error : " . $mysqli->error);
+                        }
+                        while($row = $res->fetch_assoc()){
+                            echo "
+                            <tr>
+                                <td>$row[trip_name]</td>
+                               <td>$row[first_name] $row[last_name]</td>
+                               <td>$row[phone_number]</td>
+                               <td>
+                                    <a class = 'btn btn-danger btn-sm' href='usercancelsreg.php'>Cancel Registration</a>
+                               </td>
+
+                            </tr>";
+                        }
+
+                     ?>
+                    </tbody>
+        </table>
+            
         
         
         <?php 
@@ -46,7 +83,7 @@ if ($result) {
         <div>
             <h1>Welcome to the Guide Profile Page</h1>
             <div class = "container my-5">
-                <h2>List of registered users</h2>
+                <h2>List of registered users for each trip</h2>
                 <a class="btn btn-primary" href="" role="button">New User</a>
                 <a class="btn btn-primary" href="guideAddTrip.php">Add a trip</a>
                 <a class="btn btn-primary" href="editProfile.php">Edit Profile</a>
@@ -56,23 +93,26 @@ if ($result) {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>Trip</th>
                     </tr>
                     </thead>
                     <tbody>
                         <?php
                         $mysqli = require __DIR__ . "/dbconnect.php"; 
-                        $sql = "SELECT * FROM users";
+                        $sql = "SELECT users.userID, users.first_name, users.last_name, users.phone_number, users.email, trip_name FROM users, user_trip, trip WHERE users.userID = user_trip.userID AND trip.guideID = $ID_of_guide";
                         $res = $mysqli->query($sql);
 
                         if(!$res){
                             die("error : " . $mysqli->error);
                         }
+                        
                         while($row = $res->fetch_assoc()){
                             echo "
                             <tr>
                                <td>$row[first_name] $row[last_name]</td>
                                <td>$row[email]</td>
                                <td>$row[phone_number]</td>
+                               <td>$row[trip_name]</td>
 
                             </tr>";
                         }
