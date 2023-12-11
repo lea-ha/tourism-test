@@ -38,6 +38,7 @@ if ($result) {
     }
     if($row['guideID'] == null){
         ?>
+        <div class = "container my-5">
         <h1>Welcome to the Regular User Profile Page</h1>
         <h2>The trips you are registered to are</h2>
         <table class="table">
@@ -74,6 +75,7 @@ if ($result) {
                      ?>
                     </tbody>
         </table>
+        </div>
             
         
         
@@ -81,12 +83,43 @@ if ($result) {
     } else {
         ?>
         <div>
-            <h1>Welcome to the Guide Profile Page</h1>
             <div class = "container my-5">
-                <h2>List of registered users for each trip</h2>
-                <a class="btn btn-primary" href="" role="button">New User</a>
+            <h1>Welcome to the Guide Profile Page</h1>
                 <a class="btn btn-primary" href="guideAddTrip.php">Add a trip</a>
                 <a class="btn btn-primary" href="editProfile.php">Edit Profile</a>
+                <br>
+                <table class = "table">
+                    <thead>
+                        <tr>
+                            <th>Trip Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $mysqli = require __DIR__ . "/dbconnect.php"; 
+                        $sql = "SELECT DISTINCT trip_name FROM trip WHERE guideID = $ID_of_guide;";
+                        $res = $mysqli->query($sql);
+
+                        if(!$res){
+                            die("error : " . $mysqli->error);
+                        }
+                        
+                        while($row = $res->fetch_assoc()){
+                            echo "
+                            <tr>
+                               <td>$row[trip_name] </td>
+                               <td>
+                                <a class = 'btn btn-primary btn-sm' href='guideEditTrip.php'>Edit Trip</a>
+                                <a class = 'btn btn-danger btn-sm'>Delete Trip</a>
+                               </td>
+                            </tr>";
+                        }
+                        ?>
+                        </tbody>
+                </table>
+                <br>
+                <h2>List of registered users for each trip</h2>
                 <table class="table">
                     <thead>
                     <tr>
