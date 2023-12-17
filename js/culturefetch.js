@@ -9,6 +9,7 @@ fetch('culture.php')
         const myDisplayData = new DisplayData();
         myDisplayData.display(jsondata);
         console.log("done");
+        myDisplayData.setCallerScript('culture');
         console.log(myDisplayData.placesNames);
         const mySearchBar = new SearchBar(myDisplayData.placesNames);
         mySearchBar.search();

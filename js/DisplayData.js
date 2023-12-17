@@ -1,21 +1,31 @@
 class DisplayData {
 
+    //callerScript = 'not set'; //to know if activity, resto or culture
+    static callerScript = 'not set';
     count = 0;
     placesNames = []; //this is used for the search bar
     districts = new Set(); //this can be used for filtering by districts
     parentContainer = document.querySelector('.place-container');
 
     constructor() {
-      
+      this.callerScript = 'not set';
+    }
+
+    setCallerScript(scriptName){
+      this.callerScript = scriptName;
+      console.log(this.callerScript);
     }
   
     display(jsonArray) {
+      console.log(this.callerScript);
       //This method is responsible for creating the DOM elements for activities, restaurants, cultural places alone, 
       //after these elements have been fetched from their respective php files and returned an object array.
         jsonArray.forEach(element => {
             const place = document.createElement('div');
             place.className = "place";
             const placeName = element.name;
+
+            //console.log(element.activityID); just checking if working
            
             const district = element.district;
             this.districts.add(district);
@@ -47,10 +57,49 @@ class DisplayData {
             
             placeNameDOM.appendChild(buttonOptions);
 
-            //const buttonFav = document.createElement('button');
-            //buttonFav.innerText("View More"); ha ma aam temshe
-            //placeNameDOM.appendChild(buttonFav);
-            
+            buttonAddFav.addEventListener('click', function(){
+              console.log('clicked on button'); //ok
+              let addFav = new XMLHttpRequest();
+
+              addFav.onreadystatechange = function () {
+                if (addFav.readyState === XMLHttpRequest.DONE) {
+                  console.log("ready state done");
+                    if (addFav.status === 200) {
+                        let response = addFav.responseText;
+                        buttonAddFav.innerText = response;
+                        console.log("Response from PHP: " + response);
+                        //alert(response); 
+                    } else {
+                        console.error("Error: " + addFav.status);
+                    }
+                }
+            };
+
+            addFav.open('GET', 'favorites.php?activityID=' + element.activityID, true);
+            addFav.send();
+
+            if(this.callerScript === 'not set'){
+              console.log("not set");
+            }
+
+            if(this.callerScript === 'activity'){
+              console.log('sending to activity');
+              addFav.open('GET', 'favorites.php?activityID=' + element.activityID, true);
+              addFav.send();
+            } 
+
+            if(this.callerScript === 'restaurant'){
+              addFav.open('GET', 'favorites.php?restaurantID=' + element.restaurantID, true);
+              addFav.send();
+            }
+
+            if(this.callerScript == 'culture'){
+              addFav.open('GET', 'favorites.php?cultureID=' + element.cultureID, true);
+              addFav.send();
+            }
+          
+
+            });
 
         });
 
@@ -122,18 +171,18 @@ class DisplayData {
         buttonBook.addEventListener('click', function () {
           console.log("Button clicked");
 
-          var xhr = new XMLHttpRequest();
+          //To register for trip, send request to php file responsible for
+          //registering users in trips
+
+          let xhr = new XMLHttpRequest();
 
           xhr.onreadystatechange = function () {
               if (xhr.readyState === XMLHttpRequest.DONE) {
                   if (xhr.status === 200) {
-                      // Successful response from the server
                       var response = xhr.responseText;
                       console.log("Response from PHP: " + response);
-                      // Handle the response here
-                      alert(response); // Display the response as an alert, for example
+                      alert(response); 
                   } else {
-                      // Error handling for non-200 HTTP status
                       console.error("Error: " + xhr.status);
                   }
               }

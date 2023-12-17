@@ -7,6 +7,7 @@ fetch('restaurant.php')
         const myDisplayData = new DisplayData();
         myDisplayData.display(jsondata);
         console.log("done");
+        myDisplayData.setCallerScript('restaurant');
         const mySearchBar = new SearchBar(myDisplayData.placesNames);
         mySearchBar.search();
     })

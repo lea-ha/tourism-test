@@ -91,9 +91,15 @@ if (isset($_SESSION["user_id"])){
 
         <p class="logout"><a href="logout.php">Log out</a></p>
        
-    <?php else: ?>
-        <p>Please log in or sign up to continue</p>
-        <p><a href="login.php">Log in</a> or <a href="signup.html">Sign Up</a></p>
+    <?php else: 
+        header("location: index.html");
+        exit;
+    ?>
+        
+        <div class="container-out">
+        <h1>Please log in or sign up to continue</h1>
+        <h1><a href="login.php">Log in</a> or <a href="signup.html">Sign Up</a></h1>
+        </div>
     <?php endif; ?>
     <script src="https://kit.fontawesome.com/32c48c7151.js" crossorigin="anonymous"></script>
 

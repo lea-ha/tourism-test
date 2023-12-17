@@ -162,11 +162,22 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column !important;
   align-items: center;
   text-align: center;
   box-shadow: 5px 5px 10px 1px rgb(0, 0, 0, 12%);
   gap: 17.5px;
   font-size: 20px;
   font-weight: bold;
+}
+
+/*-----------*/
+.container-out{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center;
+    height: 100vh; /* Adjust as needed */
+    text-align: center; /* Align text center */
+  
 }

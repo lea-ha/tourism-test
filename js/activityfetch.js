@@ -7,6 +7,7 @@ fetch('activity.php')
         const myDisplayData = new DisplayData();
         myDisplayData.display(jsondata);
         console.log("done");
+        myDisplayData.setCallerScript('activity');
         const mySearchBar = new SearchBar(myDisplayData.placesNames);
         mySearchBar.search();
     })

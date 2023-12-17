@@ -38,7 +38,6 @@ function addToTripDetails(&$tripDetails, $tripID, $type, $name) {
         }
     }
 
-    // Add the name to the array for the specified tripID if it's unique
     if ($isUnique) {
         $tripDetails[$tripID][$type][] = $name;
     }
