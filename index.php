@@ -26,19 +26,25 @@ if (isset($_SESSION["user_id"])){
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <script src="js/DisplayData.js" defer></script>
     <script src ="js/tripsfetch.js" defer></script>
+    <link rel="stylesheet" href="css/places.css">
 
 </head>
 <body>
-    <h1>Home</h1>
+    <!--<h1>Home</h1>-->
     <?php if(isset($user)) : ?>
 
         <!-- Navigation bar, feel free to edit it completely, classes are from fontawesome, used for displaying icons -->
+        <div class="heading">
+        <h1> Hello <?= htmlspecialchars($user["first_name"])?> !</h1>
 
-        <p> Hello <?= htmlspecialchars($user["first_name"])?> !</p>
-
+        <h1>
         <form action="GetUserDetails.php" method = "POST">
-            <button><i class="fa-solid fa-user"></i>         My Profile</button>
+        <button><i class="fa-solid fa-user"></i>         Profile</button>
         </form>
+        </h1>
+        </div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br />
+        
         
 
         <h1>Upcoming Trips</h1>
@@ -83,8 +89,8 @@ if (isset($_SESSION["user_id"])){
             <!-- </div> --> 
         </div>
 
-
-       <p><a href="logout.php">Log out</a></p>
+        <p class="logout"><a href="logout.php">Log out</a></p>
+       
     <?php else: ?>
         <p>Please log in or sign up to continue</p>
         <p><a href="login.php">Log in</a> or <a href="signup.html">Sign Up</a></p>

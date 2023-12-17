@@ -41,7 +41,7 @@ class DisplayData {
             buttonViewMore.innerText = "View More";
             const buttonAddFav = document.createElement('a');
             buttonAddFav.innerText = "Add to Favorites";
-            
+
             buttonOptions.appendChild(buttonViewMore);
             buttonOptions.appendChild(buttonAddFav);
             
@@ -57,6 +57,8 @@ class DisplayData {
     }
 
     displayTrip(jsonArray){
+
+    
       //Need to implement js codes for DOM content of Trips. To view how the trips are saved in the array, 
       //go to console on index.php page.
       const parentContainer2 = document.querySelector('#container-trip');
@@ -64,7 +66,11 @@ class DisplayData {
         
         const tripdiv = document.createElement('div');
         tripdiv.className="trip";
-        tripdiv.innerText = "Trip: " +  element.trip_name;
+        //tripdiv.innerText = "Trip: " +  element.trip_name;
+
+        const tripdivH2 = document.createElement('h2');
+        tripdivH2.innerText = element.trip_name;
+        tripdiv.appendChild(tripdivH2);
 
         const guideName = document.createElement('p');
         guideName.innerText = "Guide Name : " + element.guideName;
@@ -99,52 +105,55 @@ class DisplayData {
         iconBooking.className = "fa-solid fa-map";
         iconDetails.className = "fa-solid fa-circle-info";
 
+        const buttonOptions = document.createElement('div');
+        buttonOptions.className = 'options';
+
         buttonView.innerText = "View Details  ";
         buttonBook.innerText = "Book a Seat  ";
         buttonBook.appendChild(iconBooking);
-        buttonBook.addEventListener('click', function () {
-          console.log("Button Book clicked for trip: " + element.trip_name);
-          // Assuming you have a button with the id 'buttonBook'
-var buttonBook = document.getElementById('buttonBook');
 
-buttonBook.addEventListener('click', function () {
-    // Disable the button to prevent multiple clicks
-    buttonBook.disabled = true;
-
-    // Make an AJAX request to the PHP file
-    var xhr = new XMLHttpRequest();
-
-    xhr.open('GET', 'sendToUserTrip.php?tripID=' + tripID, true);
-
-    // Define the function to handle the response from the server
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            // Re-enable the button regardless of the response
-            buttonBook.disabled = false;
-
-            if (xhr.status == 200) {
-                // Handle the response from the server
-                console.log(xhr.responseText);
-                alert(xhr.responseText);
-
-                // You can do something with the response here, if needed
-            } else {
-                // Handle the error if the request fails
-                console.error('Request failed with status ' + xhr.status);
-            }
-        }
-    };
-
-    // Send the request
-    xhr.send();
-});
-
-        });
         buttonView.appendChild(iconDetails);
         //maybe should make a method for both trip and bus booking
 
-        tripdiv.appendChild(buttonView);
-        tripdiv.appendChild(buttonBook);
+        buttonOptions.appendChild(buttonView);
+        buttonOptions.appendChild(buttonBook);
+        tripdiv.appendChild(buttonOptions);
+
+        buttonBook.addEventListener('click', function () {
+          console.log("Button clicked");
+
+          var xhr = new XMLHttpRequest();
+
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState === XMLHttpRequest.DONE) {
+                  if (xhr.status === 200) {
+                      // Successful response from the server
+                      var response = xhr.responseText;
+                      console.log("Response from PHP: " + response);
+                      // Handle the response here
+                      alert(response); // Display the response as an alert, for example
+                  } else {
+                      // Error handling for non-200 HTTP status
+                      console.error("Error: " + xhr.status);
+                  }
+              }
+          };
+
+          xhr.open('GET', 'sendToUserTrip.php?tripID=' + tripID, true);
+          xhr.send();
+      });
+
+      //   document.addEventListener('DOMContentLoaded', function () {
+      
+      //     if (buttonBook) {
+      //         // Check if the button exists
+              
+      //     } else {
+      //         console.error('Button not found.');
+      //     }
+      // });
+        //tripdiv.appendChild(buttonView);
+        //tripdiv.appendChild(buttonBook);
       })
 
     }  
