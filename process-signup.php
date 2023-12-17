@@ -64,5 +64,8 @@ if($stmt->execute()){
     die($mysqli->error . " " . $mysqli->errno);
 }
 
+//header('location: login.php');
+//exit;
+
 
 

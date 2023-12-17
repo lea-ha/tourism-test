@@ -15,11 +15,19 @@ session_start();
     <script src="js/DisplayData.js" defer></script>
     <script src ="js/SearchBar.js" defer></script>
     <script src ="js/activityfetch.js" defer></script>
+    <link rel="stylesheet" href="css/places.css">
 </head>
 <body>
     
 <?php if(isset($_SESSION['user_id'])) : ?>
-    <div class="container">
+    <div class="heading">
+      <h1>
+        Lebanon's Activities:<br />
+        Where you can Ski and go to the beach on the same day!
+      </h1>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="place-container">
         <select name="district" id="district">
             <option value="All">All</option>
             <option value="Matn">Matn</option>

@@ -27,7 +27,7 @@ class DisplayData {
             // Having an error when i am inserting image in db.
             this.placesNames[this.count] = placeName;
             this.count++;
-            const placeNameDOM = document.createElement('p');
+            const placeNameDOM = document.createElement('h2');
             placeNameDOM.textContent = "Place: " + placeName;
             placeNameDOM.className = "placeName";
 
@@ -35,9 +35,21 @@ class DisplayData {
             place.appendChild(placeNameDOM);
             this.parentContainer.appendChild(place);
 
-            const buttonFav = document.createElement('button');
+            const buttonOptions = document.createElement('div');
+            buttonOptions.className = 'options';
+            const buttonViewMore = document.createElement('a');
+            buttonViewMore.innerText = "View More";
+            const buttonAddFav = document.createElement('a');
+            buttonAddFav.innerText = "Add to Favorites";
+            
+            buttonOptions.appendChild(buttonViewMore);
+            buttonOptions.appendChild(buttonAddFav);
+            
+            placeNameDOM.appendChild(buttonOptions);
+
+            //const buttonFav = document.createElement('button');
             //buttonFav.innerText("View More"); ha ma aam temshe
-            placeNameDOM.appendChild(buttonFav);
+            //placeNameDOM.appendChild(buttonFav);
             
 
         });
@@ -92,26 +104,41 @@ class DisplayData {
         buttonBook.appendChild(iconBooking);
         buttonBook.addEventListener('click', function () {
           console.log("Button Book clicked for trip: " + element.trip_name);
-          buttonBook.addEventListener('click', function () {
-            // Make an AJAX request to the PHP file
-            var xhr = new XMLHttpRequest();
-    
-            xhr.open('GET', 'sendToUserTrip.php?tripID='+tripID, true);
-    
-            // Define the function to handle the response from the server
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Handle the response from the server
-                    console.log(xhr.responseText);
-                    alert(xhr.responseText);
+          // Assuming you have a button with the id 'buttonBook'
+var buttonBook = document.getElementById('buttonBook');
 
-                    // You can do something with the response here, if needed
-                }
-            };
-    
-            // Send the request
-            xhr.send();
-        });
+buttonBook.addEventListener('click', function () {
+    // Disable the button to prevent multiple clicks
+    buttonBook.disabled = true;
+
+    // Make an AJAX request to the PHP file
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'sendToUserTrip.php?tripID=' + tripID, true);
+
+    // Define the function to handle the response from the server
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            // Re-enable the button regardless of the response
+            buttonBook.disabled = false;
+
+            if (xhr.status == 200) {
+                // Handle the response from the server
+                console.log(xhr.responseText);
+                alert(xhr.responseText);
+
+                // You can do something with the response here, if needed
+            } else {
+                // Handle the error if the request fails
+                console.error('Request failed with status ' + xhr.status);
+            }
+        }
+    };
+
+    // Send the request
+    xhr.send();
+});
+
         });
         buttonView.appendChild(iconDetails);
         //maybe should make a method for both trip and bus booking

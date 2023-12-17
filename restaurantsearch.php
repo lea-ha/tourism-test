@@ -15,9 +15,17 @@ session_start()
     <script src="js/DisplayData.js" defer></script>
     <script src ="js/SearchBar.js" defer></script>
     <script src ="js/restaurantfetch.js" defer></script>
+    <link rel="stylesheet" href="css/places.css">
 </head>
 <body>
 <?php if(isset($_SESSION['user_id'])) : ?>
+    <div class="heading">
+      <h1>
+        Lebanon's Restaurants:<br />
+        Tabbouleh, Hummus, or Shawarma?
+      </h1>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br />
     <div class="container">
         <select name="district" id="district">
             <option value="All">All</option>
