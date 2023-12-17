@@ -8,16 +8,17 @@ class DisplayData {
     parentContainer = document.querySelector('.place-container');
 
     constructor() {
-      this.callerScript = 'not set';
+      //this.callerScript = 'not set';
     }
 
-    setCallerScript(scriptName){
-      this.callerScript = scriptName;
-      console.log(this.callerScript);
-    }
+// static setCallerScript(scriptName){
+//       DisplayData.callerScript = scriptName;
+//       console.log(this.callerScript);
+//     }
   
-    display(jsonArray) {
-      console.log(this.callerScript);
+    display(jsonArray,scriptName) {
+      DisplayData.callerScript = scriptName;
+      console.log(DisplayData.callerScript);
       //This method is responsible for creating the DOM elements for activities, restaurants, cultural places alone, 
       //after these elements have been fetched from their respective php files and returned an object array.
         jsonArray.forEach(element => {
@@ -50,6 +51,7 @@ class DisplayData {
             const buttonViewMore = document.createElement('a');
             buttonViewMore.innerText = "View More";
             const buttonAddFav = document.createElement('a');
+            //need to pre set text to what s in db
             buttonAddFav.innerText = "Add to Favorites";
 
             buttonOptions.appendChild(buttonViewMore);
@@ -75,25 +77,25 @@ class DisplayData {
                 }
             };
 
-            addFav.open('GET', 'favorites.php?activityID=' + element.activityID, true);
-            addFav.send();
+            // addFav.open('GET', 'favorites.php?activityID=' + element.activityID, true);
+            // addFav.send();
 
-            if(this.callerScript === 'not set'){
+            if(scriptName === 'not set'){
               console.log("not set");
             }
 
-            if(this.callerScript === 'activity'){
-              console.log('sending to activity');
+            if(scriptName === 'activity'){
+              //console.log('sending to activity');
               addFav.open('GET', 'favorites.php?activityID=' + element.activityID, true);
               addFav.send();
             } 
 
-            if(this.callerScript === 'restaurant'){
+            if(scriptName === 'restaurant'){
               addFav.open('GET', 'favorites.php?restaurantID=' + element.restaurantID, true);
               addFav.send();
             }
 
-            if(this.callerScript == 'culture'){
+            if(scriptName === 'culture'){
               addFav.open('GET', 'favorites.php?cultureID=' + element.cultureID, true);
               addFav.send();
             }
