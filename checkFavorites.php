@@ -47,4 +47,7 @@ $mysqli = require __DIR__ . "/dbconnect.php";
     if ($checkStatement->num_rows == 0) {
         $alert = "Add to Favorites";
         echo $alert;
+    } else {
+        $alert = "Added to Favorites!";
+        echo $alert;
     }

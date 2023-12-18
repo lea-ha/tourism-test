@@ -81,10 +81,11 @@ body {
 .place {
   background-color: white;
   border-radius: 10px;
+  box-sizing: border-box;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; /*this is interfering with the search bar*/
   align-items: center;
   text-align: center;
   box-shadow: 5px 5px 10px 1px rgb(0, 0, 0, 12%);

@@ -45,7 +45,7 @@ $mysqli = require __DIR__ . "/dbconnect.php";
 
 
     if ($checkStatement->num_rows == 0) {
-        // meaning that user didnt register for that trip
+        
         $insertQuery = "INSERT INTO $tableName (userID, $IDname) VALUES (?, ?)";
         $insertStatement = $mysqli->prepare($insertQuery);
 
@@ -65,13 +65,13 @@ $mysqli = require __DIR__ . "/dbconnect.php";
 
         $insertStatement->close();
     } else {
-        $alert =  "Already Added.";
+        $alert =  "Add to Favorites";
         echo $alert;
     }
     if($checkStatement->num_rows>0){
-        // $mysqli = require __DIR__ . "/dbconnect.php"; 
-        // $sql = "DELETE FROM $tableName WHERE userID = $userID AND $IDname = $favID";
-        // $mysqli->query($sql);
+        $mysqli = require __DIR__ . "/dbconnect.php"; 
+        $sql = "DELETE FROM $tableName WHERE userID = $userID AND $IDname = $favID";
+        $mysqli->query($sql);
     }
 
     $checkStatement->close();

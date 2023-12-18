@@ -1,4 +1,5 @@
 .hide {
     visibility:hidden;
     display:none;
+    /*flex: 0;*/
   }

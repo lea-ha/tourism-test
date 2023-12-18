@@ -13,6 +13,7 @@ class SearchBar{
             for(let y=0; y<names.length; y=y+1){
               const value = e.target.value.toLowerCase();
               const isVisible = this.namesArray[y].toLowerCase().includes(value);
+              names[y].parentElement.classList.toggle("hide", !isVisible);
               names[y].classList.toggle("hide", !isVisible);
             }
         })
