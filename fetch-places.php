@@ -70,6 +70,7 @@ function getTripDetails() {
         $date = $row['date'];
         $area = $row['area'];
         $trip_name = $row['trip_name'];
+        $trip_pic = $row['pic'];
 
         // Check if the tripID already exists in the result array, if not, create a new entry for the tripID
         if (!isset($tripDetails[$tripID])) {
@@ -79,6 +80,7 @@ function getTripDetails() {
                 'date' => $date,
                 'area' => $area,
                 'trip_name' => $trip_name,
+                'pic' => $trip_pic,
                 'cultures' => array(),
                 'activities' => array(),
                 'restaurants' => array()

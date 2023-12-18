@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";   #Check for ur conditions and update that piece of code
-$dbname = "tourismdb";
+$dbname = "tourismdatabase";
 $username ="root";
 $password = ""; #if not localhost better have a pwd
 

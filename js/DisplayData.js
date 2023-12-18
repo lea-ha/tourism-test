@@ -32,6 +32,12 @@ class DisplayData {
             const district = element.district;
             this.districts.add(district);
 
+            const placeImg = document.createElement('img');
+            placeImg.style.height = '120px';
+            placeImg.style.width = '300px';
+            placeImg.src = element.picture;
+            place.appendChild(placeImg);
+
             const districtDOM = document.createElement('p');
             districtDOM.textContent = "district : " + district;
 
@@ -40,7 +46,7 @@ class DisplayData {
             this.placesNames[this.count] = placeName;
             this.count++;
             const placeNameDOM = document.createElement('h2');
-            placeNameDOM.textContent = "Place: " + placeName;
+            placeNameDOM.textContent = placeName;
             placeNameDOM.className = "placeName";
 
             placeNameDOM.appendChild(districtDOM);
@@ -123,6 +129,11 @@ class DisplayData {
         const tripdiv = document.createElement('div');
         tripdiv.className="trip";
         //tripdiv.innerText = "Trip: " +  element.trip_name;
+        const placeImg = document.createElement('img');
+            placeImg.style.height = '350px';
+            placeImg.style.width = '700px';
+            placeImg.src = element.pic;
+            tripdiv.appendChild(placeImg);
 
         const tripdivH2 = document.createElement('h2');
         tripdivH2.innerText = element.trip_name;
