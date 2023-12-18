@@ -17,10 +17,11 @@ class DisplayData {
 //     }
   
     display(jsonArray,scriptName) {
-      DisplayData.callerScript = scriptName;
-      console.log(DisplayData.callerScript);
+      // DisplayData.callerScript = scriptName;
+      // console.log(DisplayData.callerScript);
       //This method is responsible for creating the DOM elements for activities, restaurants, cultural places alone, 
       //after these elements have been fetched from their respective php files and returned an object array.
+      //scriptName is to know from which of activity restaurant and culture I'm calling the method
         jsonArray.forEach(element => {
             const place = document.createElement('div');
             place.className = "place";
@@ -52,7 +53,11 @@ class DisplayData {
             buttonViewMore.innerText = "View More";
             const buttonAddFav = document.createElement('a');
             //need to pre set text to what s in db
-            buttonAddFav.innerText = "Add to Favorites";
+
+            this.setFavButtonText(buttonAddFav,scriptName,element);
+            //buttonAddFav.innerText = "Add to Favorites";
+            
+
 
             buttonOptions.appendChild(buttonViewMore);
             buttonOptions.appendChild(buttonAddFav);
@@ -194,15 +199,7 @@ class DisplayData {
           xhr.send();
       });
 
-      //   document.addEventListener('DOMContentLoaded', function () {
-      
-      //     if (buttonBook) {
-      //         // Check if the button exists
-              
-      //     } else {
-      //         console.error('Button not found.');
-      //     }
-      // });
+
         //tripdiv.appendChild(buttonView);
         //tripdiv.appendChild(buttonBook);
       })
@@ -215,6 +212,42 @@ class DisplayData {
 
     displayAdminDetails($guideID){
       
+    }
+
+    setFavButtonText(buttonElement, nameOfScript, elementToFetchFrom){
+
+      // addFav.open('GET', 'favorites.php?activityID=' + element.activityID, true);
+      // addFav.send();
+      if(nameOfScript === 'activity'){
+        const url = `checkFavorites.php?activityID=${elementToFetchFrom.activityID}`;
+        fetch(url)
+        .then(response => response.text())
+        .then(text => {
+            buttonElement.innerText = text;
+        })
+        .catch(error => console.error('Error fetching button text:', error));
+      }
+
+      if(nameOfScript === 'culture'){
+        const url = `checkFavorites.php?cultureID=${elementToFetchFrom.cultureID}`;
+        fetch(url)
+        .then(response => response.text())
+        .then(text => {
+            buttonElement.innerText = text;
+        })
+        .catch(error => console.error('Error fetching button text:', error));
+      }
+
+      if(nameOfScript === 'restaurant'){
+        const url = `checkFavorites.php?restaurantID=${elementToFetchFrom.restaurantID}`;
+        fetch(url)
+        .then(response => response.text())
+        .then(text => {
+            buttonElement.innerText = text;
+        })
+        .catch(error => console.error('Error fetching button text:', error));
+      }
+
     }
   }
 
