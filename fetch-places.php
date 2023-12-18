@@ -85,6 +85,8 @@ function getTripDetails() {
             );
         }
 
+
+
         
         addToTripDetails($tripDetails, $tripID, 'cultures', $culture_name);
         addToTripDetails($tripDetails, $tripID, 'activities', $activity_name);
@@ -92,7 +94,7 @@ function getTripDetails() {
     }
 
     //make it an array
-    $tripsDetailsArray = array($tripDetails);
+    //$tripsDetailsArray = array($tripDetails);
     //print_r($tripDetails);
 
     $jsonTrips = json_encode(array_values($tripDetails));

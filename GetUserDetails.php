@@ -66,7 +66,7 @@ if ($result) {
                                <td>$row[first_name] $row[last_name]</td>
                                <td>$row[phone_number]</td>
                                <td>
-                                    <a class = 'btn btn-danger btn-sm' href='usercancelsreg.php'>Cancel Registration</a>
+                                    <a class = 'btn btn-danger btn-sm' href='usercancelsreg.php?tripID=$row[tripID]'>Cancel Registration</a>
                                </td>
 
                             </tr>";
@@ -85,7 +85,10 @@ if ($result) {
         <div>
             <div class = "container my-5">
             <h1>Welcome to the Guide Profile Page</h1>
-                <a class="btn btn-primary" href="guideAddTrip.php">Add a trip</a>
+            <?php
+            echo"<a class='btn btn-primary' href='guideAddTrip.php?guideID=$ID_of_guide'>Add a trip</a>";
+            ?>
+                <!--<a class="btn btn-primary" href="guideAddTrip.php?">Add a trip</a>-->
                 <a class="btn btn-primary" href="editProfile.php">Edit Profile</a>
                 <br>
                 <table class = "table">

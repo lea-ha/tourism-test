@@ -49,7 +49,7 @@ if (isset($_SESSION["user_id"])){
 
         <h1>Upcoming Trips</h1>
 
-        <div class="container" id="container-trip">
+        <div class="trip-container" id="container-trip">
             <!-- Related content for trips should be added here through JS, similar to the one for places -->
             
         </div>
