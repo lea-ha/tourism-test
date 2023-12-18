@@ -113,7 +113,7 @@ if ($result) {
                             <tr>
                                <td>$row[trip_name] </td>
                                <td>
-                                <a class = 'btn btn-primary btn-sm' href='guideEditTrip.php'>Edit Trip</a>
+                                <a class = 'btn btn-primary btn-sm' href='guideEditTrip.php?tripID=1'>Edit Trip</a>
                                 <a class = 'btn btn-danger btn-sm'>Delete Trip</a>
                                </td>
                             </tr>";
