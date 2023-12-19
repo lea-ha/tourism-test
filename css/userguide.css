@@ -52,8 +52,39 @@ img {
     background-color: #c9302c;
   }
 
-  #myTextarea {
-    width: 50%; 
-    height: 50%; 
-    resize: none; 
-  }
+
+.place-container {
+    display: flex !important; 
+    flex-wrap: wrap !important;
+    justify-content: space-around !important; 
+}
+
+
+.place-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important; 
+}
+
+.place {
+    width: 200px !important; 
+    margin: 10px !important; 
+    padding: 10px !important;
+    border: 0.5px solid #ccc !important;
+    border-radius: 10%;
+    text-align: left !important;
+}
+
+.place h2 img {
+    max-width: 50px !important; 
+    height: 30px !important;
+    border-radius: 8px !important; 
+}
+
+.place h2 {
+    margin-top: 10px !important;
+    font-size: 16px !important; 
+    text-align: left;
+    
+}
+

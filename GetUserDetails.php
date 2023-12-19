@@ -45,6 +45,41 @@ if ($result) {
         </br>
         <img src='pics/caf.jpg'></img>
         </br></br></br></br></br></br>
+        <h2>Your Favorites</h2>
+        <?php
+        $qActivity = "SELECT * FROM user_favActivity, activity WHERE userID=$_SESSION[user_id] AND user_favActivity.activityID = activity.activityID";
+        $qCulture = "SELECT * FROM user_favCulture, culture WHERE userID=$_SESSION[user_id] AND user_favCulture.cultureID = culture.cultureID";
+        $qResto = "SELECT * FROM user_favRestaurant, restaurant WHERE userID=$_SESSION[user_id] AND user_favRestaurant.restaurantID = restaurant.restaurantID";
+        $resA = $mysqli->query($qActivity);
+        $resC = $mysqli->query($qCulture);
+        $resR = $mysqli->query($qResto);
+        echo"<div class='place-container'>";
+        while($row = $resA->fetch_assoc()){
+            echo"<div class='place'>
+            <h2>{$row['name']}
+            <img src='{$row['picture']}' alt='{$row['name']}'>
+            </h2>
+            </div>
+            ";
+        }
+        while($row = $resR->fetch_assoc()){
+            echo"<div class='place'>
+            <h2>{$row['name']}
+            <img src='{$row['picture']}' alt='{$row['name']}'>
+            </h2>
+            </div>
+            ";
+        }
+        while($row = $resC->fetch_assoc()){
+            echo"<div class='place'>
+            <h2>{$row['name']}
+            <img src='{$row['picture']}' alt='{$row['name']}'>
+            </h2>
+            </div>
+            ";
+        }
+        echo"</div>";
+        ?>
         <h2>The trips you are registered to are</h2>
         <table class="table">
                     <thead>
