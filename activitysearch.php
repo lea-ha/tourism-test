@@ -14,6 +14,7 @@ session_start();
     <link rel="stylesheet" href="css/hide.css">
     <script src="js/DisplayData.js" defer></script>
     <script src ="js/SearchBar.js" defer></script>
+    <script src ="js/FilterDistrict.js" defer></script>
     <script src ="js/activityfetch.js" defer></script>
     <link rel="stylesheet" href="css/places.css">
 </head>

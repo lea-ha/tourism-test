@@ -12,6 +12,7 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="stylesheet" href="css/hide.css">
     <script src="js/DisplayData.js" defer></script>
+    <script src="js/FilterDistrict.js" defer></script>
     <script src ="js/SearchBar.js" defer></script>
     <script src ="js/culturefetch.js" defer></script>
     <link rel="stylesheet" href="css/places.css">

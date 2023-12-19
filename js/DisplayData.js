@@ -32,6 +32,8 @@ class DisplayData {
            
             const district = element.district;
             this.districts.add(district);
+            place.setAttribute('data-district', element.district);
+            place.setAttribute('data-name', element.name);
 
             const placeImg = document.createElement('img');
             placeImg.style.height = '120px';
