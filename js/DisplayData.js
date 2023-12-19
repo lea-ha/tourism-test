@@ -57,6 +57,10 @@ class DisplayData {
             buttonOptions.className = 'options';
             const buttonViewMore = document.createElement('a');
             buttonViewMore.innerText = "View More";
+            buttonViewMore.addEventListener('click', function() {
+              // Redirect to viewdetails.php
+              window.location.href = 'viewdetails.php';
+            });
             const buttonAddFav = document.createElement('a');
             //need to pre set text to what s in db
 
@@ -164,6 +168,8 @@ class DisplayData {
         tripdiv.appendChild(tripdate);
         parentContainer2.appendChild(tripdiv);
 
+        
+
         const buttonView = document.createElement('button');
         const buttonBook = document.createElement('button');
 
@@ -185,6 +191,7 @@ class DisplayData {
         buttonOptions.appendChild(buttonView);
         buttonOptions.appendChild(buttonBook);
         tripdiv.appendChild(buttonOptions);
+
 
         buttonBook.addEventListener('click', function () {
           console.log("Button clicked");
@@ -217,13 +224,12 @@ class DisplayData {
 
     }  
 
-    displayUserDetails($userID){
+    
+displayDetails($neededDetailID){
+  
+}
+  
 
-    }
-
-    displayAdminDetails($guideID){
-      
-    }
 
     setFavButtonText(buttonElement, nameOfScript, elementToFetchFrom){
 
@@ -262,7 +268,6 @@ class DisplayData {
     }
   }
 
-  
 
   
   
