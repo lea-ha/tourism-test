@@ -144,7 +144,7 @@ if ($result) {
                     <tbody>
                         <?php
                         $mysqli = require __DIR__ . "/dbconnect.php"; 
-                        $sql = "SELECT DISTINCT trip_name FROM trip WHERE guideID = $ID_of_guide;";
+                        $sql = "SELECT DISTINCT trip_name,tripID FROM trip WHERE guideID = $ID_of_guide;";
                         $res = $mysqli->query($sql);
 
                         if(!$res){
@@ -156,7 +156,7 @@ if ($result) {
                             <tr>
                                <td>$row[trip_name] </td>
                                <td>
-                                <a class = 'btn btn-primary btn-sm' href='guideEditTrip.php?tripID=1'>Edit Trip</a>
+                                <a class = 'btn btn-primary btn-sm' href='guideEditTrip.php?tripID=$row[tripID]'>Edit Trip</a>
                                 <a class = 'btn btn-danger btn-sm'>Delete Trip</a>
                                </td>
                             </tr>";
