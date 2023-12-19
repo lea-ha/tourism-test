@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/userguide.css">
+
 
     <title>Document</title>
 </head>
@@ -40,6 +42,9 @@ if ($result) {
         ?>
         <div class = "container my-5">
         <h1>Welcome to the Regular User Profile Page</h1>
+        </br>
+        <img src='pics/caf.jpg'></img>
+        </br></br></br></br></br></br>
         <h2>The trips you are registered to are</h2>
         <table class="table">
                     <thead>
@@ -85,6 +90,9 @@ if ($result) {
         <div>
             <div class = "container my-5">
             <h1>Welcome to the Guide Profile Page</h1>
+            </br>
+            <img src='pics/caf.jpg'></img>
+            </br></br></br></br></br></br>
             <?php
             echo"<a class='btn btn-primary' href='guideAddTrip.php?guideID=$ID_of_guide'>Add a trip</a>";
             ?>

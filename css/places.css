@@ -105,12 +105,12 @@ body {
 }
 
 .place h2 {
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .place p {
   padding: 0 20px;
-  font-size: 12.5px;
+  font-size: 13.5px;
   line-height: 1.35;
   color: var(--gray-color);
 }
@@ -199,3 +199,4 @@ body {
     text-align: center; /* Align text center */
   
 }
+

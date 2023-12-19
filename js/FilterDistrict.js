@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
           selectedDistrict === "All" || selectedDistrict === boxDistrict;
 
         // Show or hide the box based on the match
-        box.style.display = matchesDistrict ? "block" : "none";
+        box.style.display = matchesDistrict ? "place" : "none";
 
         if (matchesDistrict) {
           console.log(`Name: ${boxName}`);

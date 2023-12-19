@@ -15,6 +15,7 @@ class DisplayData {
 //       DisplayData.callerScript = scriptName;
 //       console.log(this.callerScript);
 //     }
+
   
     display(jsonArray,scriptName) {
       // DisplayData.callerScript = scriptName;
@@ -57,9 +58,25 @@ class DisplayData {
             buttonOptions.className = 'options';
             const buttonViewMore = document.createElement('a');
             buttonViewMore.innerText = "View More";
+            //buttonViewMore.setAttribute('href', this.getURLforView(scriptName, element));
             buttonViewMore.addEventListener('click', function() {
-              // Redirect to viewdetails.php
-              window.location.href = 'viewdetails.php';
+             //myURL =  this.getURLforView(scriptName, element);
+             if(scriptName === 'activity'){
+              let url = `viewdetails.php?activityID='${element.activityID}'`;
+              window.location.href = url;
+              
+            }
+          
+            if(scriptName === 'culture'){
+              let url = `viewdetails.php?cultureID='${element.cultureID}'`;
+              window.location.href = url;
+            }
+          
+            if(scriptName === 'restaurant'){
+              let url = `viewdetails.php?restaurantID='${element.cultureID}'`;
+              window.location.href = url;
+            }
+              
             });
             const buttonAddFav = document.createElement('a');
             //need to pre set text to what s in db
@@ -266,6 +283,7 @@ displayDetails($neededDetailID){
       }
 
     }
+
   }
 
 

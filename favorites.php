@@ -65,7 +65,7 @@ $mysqli = require __DIR__ . "/dbconnect.php";
 
         $insertStatement->close();
     } else {
-        $alert =  "Add to Favorites";
+        $alert =  "Add to Favorites.";
         echo $alert;
     }
     if($checkStatement->num_rows>0){
@@ -76,11 +76,6 @@ $mysqli = require __DIR__ . "/dbconnect.php";
 
     $checkStatement->close();
     $mysqli->close();
-
-    //REMOVE COMMENT AFTER TESTING !!!!!!
-
-    //header('location: index.php');
-    //exit;
 
 
 ?>
