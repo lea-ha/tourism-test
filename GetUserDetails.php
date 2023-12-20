@@ -45,6 +45,7 @@ if ($result) {
         </br>
         <img src='pics/caf.jpg'></img>
         </br></br></br></br></br></br>
+        <?php echo"<a class='btn btn-primary' href='editProfile.php?userID=$_SESSION[user_id]'>Edit Profile</a>"; ?>
         <h2>Your Favorites</h2>
         <?php
         $qActivity = "SELECT * FROM user_favActivity, activity WHERE userID=$_SESSION[user_id] AND user_favActivity.activityID = activity.activityID";
