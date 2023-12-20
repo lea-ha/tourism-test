@@ -62,13 +62,14 @@ if(isset($_GET['restaurantID'])){
         <p>$desc</p>
         <label for='myTextarea'>Insert a comment:</label>
         <textarea id='myTextarea'></textarea>
-        <button>Submit</button>
+        <button >Submit</button>
         <style>#myTextarea {
             width: 50%; 
             height: 50%; 
             box-sizing: border-box; 
           }</style>
           <h2>View other's comments:</h2>
+          
         </div>
         </div>";
     }
