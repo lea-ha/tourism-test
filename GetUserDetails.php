@@ -132,7 +132,7 @@ if ($result) {
             echo"<a class='btn btn-primary' href='guideAddTrip.php?guideID=$ID_of_guide'>Add a trip</a>";
             ?>
                 <!--<a class="btn btn-primary" href="guideAddTrip.php?">Add a trip</a>-->
-                <a class="btn btn-primary" href="editProfile.php">Edit Profile</a>
+               <?php echo"<a class='btn btn-primary' href='editProfile.php?userID=$_SESSION[user_id]'>Edit Profile</a>"; ?>
                 <br>
                 <table class = "table">
                     <thead>
